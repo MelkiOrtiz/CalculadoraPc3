@@ -175,7 +175,7 @@ public class CalculatorController implements Initializable {
     }
 
     private void handlePi() {
-        display.setText(String.valueOf(Math.PI));
+        display.setText(display.getText()+"π");
         start = true;
     }
 

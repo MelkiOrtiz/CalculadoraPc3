@@ -9,44 +9,48 @@
   <TextField fx:id="display" editable="false" maxWidth="Infinity" prefHeight="40.0" prefWidth="212.0" style="-fx-font-size: 18px; -fx-background-color: #f0f0f0;" GridPane.columnSpan="9" />
 
   <!-- First Row -->
-  <Button style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #B84A62;" text="=" GridPane.columnIndex="0" GridPane.rowIndex="1"  onMouseClicked="#handleButtonAction" />
-  <Button style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #297373" text="ln" GridPane.columnIndex="1" GridPane.rowIndex="1"  onMouseClicked="#handleButtonAction"  />
-  <Button style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #297373" text="e" GridPane.columnIndex="2" GridPane.rowIndex="1"  onMouseClicked="#handleButtonAction" />
-  <Button style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #297373" text="π" GridPane.columnIndex="3" GridPane.rowIndex="1"  onMouseClicked="#handleButtonAction" />
-  <Button style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #E3E7D3" text="7" GridPane.columnIndex="4" GridPane.rowIndex="1"  onMouseClicked="#handleButtonAction" />
-  <Button style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #E3E7D3" text="8" GridPane.columnIndex="5" GridPane.rowIndex="1"  onMouseClicked="#handleButtonAction" />
-  <Button style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #E3E7D3" text="9" GridPane.columnIndex="6" GridPane.rowIndex="1"  onMouseClicked="#handleButtonAction" />
-  <Button style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #B84A62;" text="DEL" GridPane.columnIndex="7" GridPane.rowIndex="1"  onMouseClicked="#handleButtonAction" />
-  <Button style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #B84A62;" text="AC" GridPane.columnIndex="8" GridPane.rowIndex="1"  onMouseClicked="#handleButtonAction" />
+  <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #B84A62;" text="=" GridPane.columnIndex="6" GridPane.rowIndex="4" />
+  <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #297373" text="ln" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+  <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #297373" text="e" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+  <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #297373" text="π" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+  <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #E3E7D3" text="7" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+  <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #E3E7D3" text="8" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+  <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #E3E7D3" text="9" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+  <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #B84A62;" text="DEL" GridPane.columnIndex="7" GridPane.rowIndex="1" />
+  <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #B84A62;" text="AC" GridPane.columnIndex="8" GridPane.rowIndex="1" />
 
   <!-- Second Row -->
-  <Button style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #297373" text="?" GridPane.columnIndex="0" GridPane.rowIndex="2"  onMouseClicked="#handleButtonAction" />
-  <Button style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #297373" text="sen" GridPane.columnIndex="1" GridPane.rowIndex="2"  onMouseClicked="#handleButtonAction" />
-  <Button style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #297373" text="cos" GridPane.columnIndex="2" GridPane.rowIndex="2"  onMouseClicked="#handleButtonAction" />
-  <Button style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #E3E7D3" text="4" GridPane.columnIndex="4" GridPane.rowIndex="2"  onMouseClicked="#handleButtonAction" />
-  <Button style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #E3E7D3" text="5" GridPane.columnIndex="5" GridPane.rowIndex="2"  onMouseClicked="#handleButtonAction" />
-  <Button style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #E3E7D3" text="6" GridPane.columnIndex="6" GridPane.rowIndex="2"  onMouseClicked="#handleButtonAction" />
-  <Button style="-fx-min-width: 50px; -fx-min-height: 40px;" text="×" GridPane.columnIndex="7" GridPane.rowIndex="2"  onMouseClicked="#handleButtonAction" />
-  <Button style="-fx-min-width: 50px; -fx-min-height: 40px;" text="÷" GridPane.columnIndex="8" GridPane.rowIndex="2"  onMouseClicked="#handleButtonAction" />
+  <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #297373" text="?" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+  <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #297373" text="sen" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+  <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #297373" text="cos" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+  <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #E3E7D3" text="4" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+  <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #E3E7D3" text="5" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+  <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #E3E7D3" text="6" GridPane.columnIndex="6" GridPane.rowIndex="2" />
+  <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;" text="×" GridPane.columnIndex="7" GridPane.rowIndex="2" />
+  <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;" text="÷" GridPane.columnIndex="8" GridPane.rowIndex="2" />
 
   <!-- Third Row -->
-  <Button style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #297373" text="!" GridPane.columnIndex="0" GridPane.rowIndex="3"  onMouseClicked="#handleButtonAction" />
-  <Button style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #B84A62;" text="(" GridPane.columnIndex="1" GridPane.rowIndex="3"  onMouseClicked="#handleButtonAction" />
-  <Button style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #B84A62;" text=")" GridPane.columnIndex="2" GridPane.rowIndex="3"  onMouseClicked="#handleButtonAction" />
-  <Button style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #E3E7D3" text="1" GridPane.columnIndex="4" GridPane.rowIndex="3"  onMouseClicked="#handleButtonAction" />
-  <Button style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #E3E7D3" text="2" GridPane.columnIndex="5" GridPane.rowIndex="3"  onMouseClicked="#handleButtonAction" />
-  <Button style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #E3E7D3" text="3" GridPane.columnIndex="6" GridPane.rowIndex="3"  onMouseClicked="#handleButtonAction" />
-  <Button style="-fx-min-width: 50px; -fx-min-height: 40px;" text="+" GridPane.columnIndex="7" GridPane.rowIndex="3"  onMouseClicked="#handleButtonAction" />
-  <Button style="-fx-min-width: 50px; -fx-min-height: 40px;" text="-" GridPane.columnIndex="8" GridPane.rowIndex="3"  onMouseClicked="#handleButtonAction" />
+  <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #297373" text="!" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+  <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #B84A62;" text="(" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+  <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #B84A62;" text=")" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+  <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #E3E7D3" text="1" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+  <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #E3E7D3" text="2" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+  <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #E3E7D3" text="3" GridPane.columnIndex="6" GridPane.rowIndex="3" />
+  <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;" text="+" GridPane.columnIndex="7" GridPane.rowIndex="3" />
+  <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;" text="-" GridPane.columnIndex="8" GridPane.rowIndex="3" />
 
   <!-- Fourth Row -->
-  <Button style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #297373" text="x" GridPane.columnIndex="0" GridPane.rowIndex="4"  onMouseClicked="#handleButtonAction" />
-  <Button style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #297373" text="y" GridPane.columnIndex="1" GridPane.rowIndex="4"  onMouseClicked="#handleButtonAction" />
-  <Button style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #E3E7D3" text="0" GridPane.columnIndex="4" GridPane.rowIndex="4"  onMouseClicked="#handleButtonAction" />
-  <Button style="-fx-min-width: 50px; -fx-min-height: 40px;" text="." GridPane.columnIndex="5" GridPane.rowIndex="4"  onMouseClicked="#handleButtonAction" />
-  <Button style="-fx-min-width: 50px; -fx-min-height: 40px;" text="xⁿ" GridPane.columnIndex="7" GridPane.rowIndex="4"  onMouseClicked="#handleButtonAction" />
-  <Button style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #297373" text="√" GridPane.columnIndex="8" GridPane.rowIndex="4"  onMouseClicked="#handleButtonAction" />
-   <columnConstraints>
+  <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #297373" text="x" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+  <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #297373" text="y" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+  <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #E3E7D3" text="0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+  <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;" text="." GridPane.columnIndex="5" GridPane.rowIndex="4" />
+  <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;" text="xⁿ" GridPane.columnIndex="7" GridPane.rowIndex="4" />
+  <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #297373" text="√" GridPane.columnIndex="8" GridPane.rowIndex="4" />
+    <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #297373" text="∫" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+    <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #297373" text="∫ab" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+    <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #297373" text="d□" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+  <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #297373" text="⬅" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+    <columnConstraints>
       <ColumnConstraints />
       <ColumnConstraints />
       <ColumnConstraints />
