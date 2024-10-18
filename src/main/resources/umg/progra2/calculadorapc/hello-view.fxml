@@ -26,7 +26,7 @@
   <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #E3E7D3" text="4" GridPane.columnIndex="4" GridPane.rowIndex="2" />
   <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #E3E7D3" text="5" GridPane.columnIndex="5" GridPane.rowIndex="2" />
   <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #E3E7D3" text="6" GridPane.columnIndex="6" GridPane.rowIndex="2" />
-  <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;" text="×" GridPane.columnIndex="7" GridPane.rowIndex="2" />
+  <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;" text="*" GridPane.columnIndex="7" GridPane.rowIndex="2" />
   <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;" text="÷" GridPane.columnIndex="8" GridPane.rowIndex="2" />
 
   <!-- Third Row -->

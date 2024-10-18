@@ -36,8 +36,17 @@ public class CalculatorController implements Initializable {
             case ".":
                 handleNumber(buttonText);
                 break;
-            case "+": case "-": case "×": case "÷":
-                handleBasicOperator(buttonText);
+            case "+":
+                handleAddition();
+                break;
+            case "-":
+                handleSubtraction();
+                break;
+            case "*":
+                handlemultiplicacion();
+                break;
+            case "÷":
+                handleDivision();
                 break;
             case "=":
                 calculateResult();
@@ -48,11 +57,13 @@ public class CalculatorController implements Initializable {
             case "AC":
                 clearAll();
                 break;
-            case "sin":
-                handleTrigonometric("sin");
+            case "sen":
+                handleSeno();
+//                handleTrigonometric("sin");
                 break;
             case "cos":
-                handleTrigonometric("cos");
+                handleCos();
+//                handleTrigonometric("cos");
                 break;
             case "ln":
                 handleLogarithm();
@@ -72,16 +83,28 @@ public class CalculatorController implements Initializable {
             case "!":
                 handleFactorial();
                 break;
+            case "(":
+                handleOpenParenthesis();
+                break;
+            case ")":
+                handleCloseParenthesis();
+                break;
+            case "x":
+                handleMultiplication();
+                break;
+            case "y":
+                handleVariableY();
+                break;
+            case "∫":
+                handleIntegral();
+                break;
         }
     }
 
     private void handleNumber(String number) {
-        if (start) {
-            display.setText(number);
-            start = false;
-        } else {
+
             display.setText(display.getText() + number);
-        }
+
     }
 
     private void handleBasicOperator(String op) {
@@ -137,11 +160,20 @@ public class CalculatorController implements Initializable {
     }
 
     private void clearAll() {
-        display.setText("0");
+        display.setText("");
         operator = "";
         start = true;
         num1 = 0;
         num2 = 0;
+    }
+
+    private void handleSeno(){
+        display.setText(display.getText()+" sin");
+        start = true;
+    }
+    private void handleCos(){
+        display.setText(display.getText()+" cos");
+        start = true;
     }
 
     private void handleTrigonometric(String function) {
@@ -164,43 +196,28 @@ public class CalculatorController implements Initializable {
     }
 
     private void handleLogarithm() {
-        double value = Double.parseDouble(display.getText());
-        if (value > 0) {
-            double result = Math.log(value);
-            display.setText(String.valueOf(result));
-        } else {
-            display.setText("Error");
-        }
+       display.setText(display.getText()+" ln");
         start = true;
     }
 
     private void handlePi() {
-        display.setText(display.getText()+"π");
+        display.setText(display.getText()+" π");
         start = true;
     }
 
     private void handleE() {
-        display.setText(String.valueOf(Math.E));
+        display.setText(display.getText()+" e");
         start = true;
     }
 
+    //REVISAR
     private void handlePower() {
-        if (!operator.isEmpty()) {
-            calculateResult();
-        }
-        num1 = Double.parseDouble(display.getText());
-        operator = "^";
+        display.setText(display.getText()+"^");
         start = true;
     }
 
     private void handleSquareRoot() {
-        double value = Double.parseDouble(display.getText());
-        if (value >= 0) {
-            double result = Math.sqrt(value);
-            display.setText(String.valueOf(result));
-        } else {
-            display.setText("Error");
-        }
+        display.setText(display.getText()+"√");
         start = true;
     }
 
@@ -218,5 +235,58 @@ public class CalculatorController implements Initializable {
     private double factorial(int n) {
         if (n == 0 || n == 1) return 1;
         return n * factorial(n - 1);
+    }
+
+    // Para multiplicación (x)
+    private void handleMultiplication() {
+        display.setText(display.getText()+" x ");
+        start = true;
+    }
+
+    // Para suma (+)
+    private void handleAddition() {
+        display.setText(display.getText()+" + ");
+        start = true;
+    }
+
+    // Para resta (-)
+    private void handleSubtraction() {
+        display.setText(display.getText()+" - ");
+        start = true;
+    }
+
+    // Para división (/)
+    private void handleDivision() {
+        display.setText(display.getText()+" ÷ ");
+        start = true;
+    }
+
+    // Para paréntesis de apertura (
+    private void handleOpenParenthesis() {
+        display.setText(display.getText()+" ( ");
+        start = true;
+    }
+
+    // Para paréntesis de cierre )
+    private void handleCloseParenthesis() {
+        display.setText(display.getText()+" ) ");
+        start = true;
+    }
+
+    // Para variable y
+    private void handleVariableY() {
+        display.setText(display.getText()+" y ");
+        start = true;
+    }
+
+    // Para integral ∫
+    private void handleIntegral() {
+        display.setText(display.getText()+" ∫ ");
+        start = true;
+    }
+
+    private void handlemultiplicacion() {
+        display.setText(display.getText()+" * ");
+        start = true;
     }
 }
