@@ -5,6 +5,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.fxml.Initializable;
+import umg.dem1.Metodos.Trigonometricas.LogicaTrigonometrica;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -22,7 +24,7 @@ public class CalculatorController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        display.setText("0");
+        display.setText("");
     }
 
     @FXML
@@ -49,7 +51,8 @@ public class CalculatorController implements Initializable {
                 handleDivision();
                 break;
             case "=":
-                calculateResult();
+//                calculateResult();
+                calcularTrigonometricas();
                 break;
             case "DEL":
                 handleDelete();
@@ -97,6 +100,9 @@ public class CalculatorController implements Initializable {
                 break;
             case "∫":
                 handleIntegral();
+                break;
+            case "d□":
+                handleDx();
                 break;
         }
     }
@@ -148,6 +154,15 @@ public class CalculatorController implements Initializable {
         answer = result;
     }
 
+    private void calcularTrigonometricas(){
+        String expression = display.getText();
+        String[] partes = expression.split(" ");
+        char diferencial = partes[1].charAt(1);
+        String termino = partes[0];
+        LogicaTrigonometrica logicaTrigonometrica = new LogicaTrigonometrica();
+        display.setText(logicaTrigonometrica.ResolverIntegral(termino,diferencial));
+    }
+
     private void handleDelete() {
         String text = display.getText();
         if (text.length() > 0) {
@@ -168,11 +183,11 @@ public class CalculatorController implements Initializable {
     }
 
     private void handleSeno(){
-        display.setText(display.getText()+" sin");
+        display.setText(display.getText()+"sin");
         start = true;
     }
     private void handleCos(){
-        display.setText(display.getText()+" cos");
+        display.setText(display.getText()+"cos");
         start = true;
     }
 
@@ -196,17 +211,17 @@ public class CalculatorController implements Initializable {
     }
 
     private void handleLogarithm() {
-       display.setText(display.getText()+" ln");
+       display.setText(display.getText()+"ln");
         start = true;
     }
 
     private void handlePi() {
-        display.setText(display.getText()+" π");
+        display.setText(display.getText()+"π");
         start = true;
     }
 
     private void handleE() {
-        display.setText(display.getText()+" e");
+        display.setText(display.getText()+"e");
         start = true;
     }
 
@@ -239,54 +254,59 @@ public class CalculatorController implements Initializable {
 
     // Para multiplicación (x)
     private void handleMultiplication() {
-        display.setText(display.getText()+" x ");
+        display.setText(display.getText()+"x");
         start = true;
     }
 
     // Para suma (+)
     private void handleAddition() {
-        display.setText(display.getText()+" + ");
+        display.setText(display.getText()+"+");
         start = true;
     }
 
     // Para resta (-)
     private void handleSubtraction() {
-        display.setText(display.getText()+" - ");
+        display.setText(display.getText()+"-");
         start = true;
     }
 
     // Para división (/)
     private void handleDivision() {
-        display.setText(display.getText()+" ÷ ");
+        display.setText(display.getText()+"÷");
         start = true;
     }
 
     // Para paréntesis de apertura (
     private void handleOpenParenthesis() {
-        display.setText(display.getText()+" ( ");
+        display.setText(display.getText()+"(");
         start = true;
     }
 
     // Para paréntesis de cierre )
     private void handleCloseParenthesis() {
-        display.setText(display.getText()+" ) ");
+        display.setText(display.getText()+")");
         start = true;
     }
 
     // Para variable y
     private void handleVariableY() {
-        display.setText(display.getText()+" y ");
+        display.setText(display.getText()+"y");
         start = true;
     }
 
     // Para integral ∫
     private void handleIntegral() {
-        display.setText(display.getText()+" ∫ ");
+        display.setText(display.getText()+"∫");
+        start = true;
+    }
+
+    private void handleDx(){
+        display.setText(display.getText()+" d");
         start = true;
     }
 
     private void handlemultiplicacion() {
-        display.setText(display.getText()+" * ");
+        display.setText(display.getText()+"*");
         start = true;
     }
 }
