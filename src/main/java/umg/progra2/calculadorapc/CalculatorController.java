@@ -1,5 +1,6 @@
 package umg.progra2.calculadorapc;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -13,8 +14,10 @@ import java.util.ResourceBundle;
 
 public class CalculatorController implements Initializable {
 
+    public TextField display2;
     @FXML
     private TextField display;
+
 
     private double num1 = 0;
     private double num2 = 0;
@@ -26,6 +29,12 @@ public class CalculatorController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         display.setText("");
+        display2.setText("Ingresa la funcion que deseas integrar (≧∇≦)ﾉ");
+
+
+//        Platform.runLater(() -> {
+//            display.positionCaret(display.getText().length());
+//        });
     }
 
     @FXML
@@ -169,6 +178,7 @@ public class CalculatorController implements Initializable {
         String expression = display.getText();
         LogicaSustitucion logicaSustitucion = new LogicaSustitucion();
         expression = logicaSustitucion.calcularIntegral(expression);
+        display2.setText("El resultado es:           (^///^)");
         display.setText(expression+" +C");
     }
 
