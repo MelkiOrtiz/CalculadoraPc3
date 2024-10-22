@@ -15,7 +15,7 @@
     <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #B84A62;" text="=" GridPane.columnIndex="6" GridPane.rowIndex="5" />
     <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #297373" text="ln" GridPane.columnIndex="1" GridPane.rowIndex="2" />
     <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #297373" text="e" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-    <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #297373" text="π" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+    <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #297373" text="π" GridPane.rowIndex="3" />
     <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #E3E7D3" text="7" GridPane.columnIndex="4" GridPane.rowIndex="2" />
     <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #E3E7D3" text="8" GridPane.columnIndex="5" GridPane.rowIndex="2" />
     <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #E3E7D3" text="9" GridPane.columnIndex="6" GridPane.rowIndex="2" />
@@ -23,7 +23,7 @@
     <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #B84A62;" text="AC" GridPane.columnIndex="8" GridPane.rowIndex="2" />
 
     <!-- Second Row -->
-    <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #297373" text="?" GridPane.rowIndex="3" />
+    <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #297373" text="->" GridPane.columnIndex="3" GridPane.rowIndex="2" />
     <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #297373" text="sen" GridPane.columnIndex="1" GridPane.rowIndex="3" />
     <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #297373" text="cos" GridPane.columnIndex="2" GridPane.rowIndex="3" />
     <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #E3E7D3" text="4" GridPane.columnIndex="4" GridPane.rowIndex="3" />
@@ -49,7 +49,7 @@
     <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;" text="." GridPane.columnIndex="5" GridPane.rowIndex="5" />
     <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;" text="xⁿ" GridPane.columnIndex="7" GridPane.rowIndex="5" />
     <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #297373" text="√" GridPane.columnIndex="8" GridPane.rowIndex="5" />
-    <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #297373" text="∫" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+    <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #297373" text="∞" GridPane.columnIndex="3" GridPane.rowIndex="3" />
     <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #297373" text="∫ab" GridPane.columnIndex="3" GridPane.rowIndex="4" />
     <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #297373" text="d□" GridPane.columnIndex="2" GridPane.rowIndex="5" />
     <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 50px; -fx-min-height: 40px;-fx-background-color: #297373" text="⬅" GridPane.rowIndex="2" />
