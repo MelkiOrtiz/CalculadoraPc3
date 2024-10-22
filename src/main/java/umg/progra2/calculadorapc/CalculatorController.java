@@ -5,6 +5,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.fxml.Initializable;
+import umg.dem1.Metodos.Sustitucion.LogicaSustitucion;
 import umg.dem1.Metodos.Trigonometricas.LogicaTrigonometrica;
 
 import java.net.URL;
@@ -52,7 +53,8 @@ public class CalculatorController implements Initializable {
                 break;
             case "=":
 //                calculateResult();
-                calcularTrigonometricas();
+//                calcularTrigonometricas();
+                calcularSustitucion();
                 break;
             case "DEL":
                 handleDelete();
@@ -154,13 +156,20 @@ public class CalculatorController implements Initializable {
         answer = result;
     }
 
-    private void calcularTrigonometricas(){
+    private void calcularTrigonometricasyPartes(){
         String expression = display.getText();
         String[] partes = expression.split(" ");
         char diferencial = partes[1].charAt(1);
         String termino = partes[0];
         LogicaTrigonometrica logicaTrigonometrica = new LogicaTrigonometrica();
         display.setText(logicaTrigonometrica.ResolverIntegral(termino,diferencial));
+    }
+
+    private void calcularSustitucion(){
+        String expression = display.getText();
+        LogicaSustitucion logicaSustitucion = new LogicaSustitucion();
+        expression = logicaSustitucion.calcularIntegral(expression);
+        display.setText(expression+" +C");
     }
 
     private void handleDelete() {
