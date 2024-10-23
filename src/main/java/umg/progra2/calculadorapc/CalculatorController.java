@@ -5,10 +5,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.fxml.Initializable;
+import org.apache.commons.math3.analysis.UnivariateFunction;
 import umg.progra2.Metodos.Impropias.LogicaImpropias;
 import umg.progra2.Metodos.Sustitucion.LogicaSustitucion;
 import umg.progra2.Metodos.Trigonometricas.LogicaTrigonometrica;
 import umg.progra2.Metodos.VolumenSolido.Arandelas;
+import umg.progra2.Metodos.utilidades.GraficadorArandelas;
 
 
 import java.net.URL;
@@ -124,7 +126,8 @@ public class CalculatorController implements Initializable {
                 handleDx();
                 break;
             case "->":
-                calcularImpropia();
+//                calcularImpropia();
+                calcularVolumenArandelas();
                 break;
         }
     }
@@ -183,6 +186,7 @@ public class CalculatorController implements Initializable {
     private Double valorB = null;
     private int n = 0;
     private String eje = "x";
+    private char ejefinal = '\u0000';
     private int paso = 0;  // Para controlar el flujo de entrada
 
 
@@ -340,6 +344,7 @@ public class CalculatorController implements Initializable {
                         return;
                     }
                     eje = textoActual;
+                    ejefinal =eje.charAt(0);
                     display2.setText("Ingresa la función F (｀∀´)Ψ");
                     display.setText("");
                     paso++;
@@ -387,6 +392,14 @@ public class CalculatorController implements Initializable {
                         }
                     }
                     Arandelas arandelas = new Arandelas();
+                    UnivariateFunction funcion = arandelas.crearFuncion(expresionGuardadaF,expresionGuardadaG,ejefinal);
+
+                    double volumen = arandelas.calcularVolumen(funcion,  valorA, valorB);
+                    double volumenRedondeado = Math.round(volumen * 1000.0) / 1000.0;
+                    display2.setText("El resultado es:");
+                    display.setText(String.valueOf(volumenRedondeado));
+                    GraficadorArandelas.graficarFunciones(expresionGuardadaF, expresionGuardadaG, valorA, valorB, ejefinal, arandelas);
+
 
             }
         } catch (Exception e) {
