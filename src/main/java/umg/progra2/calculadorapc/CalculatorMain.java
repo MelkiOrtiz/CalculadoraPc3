@@ -24,19 +24,4 @@ public class CalculatorMain extends Application {
         launch();
     }
 
-//    @Override
-//    public void start(Stage stage) throws Exception {
-//        Parent root = FXMLLoader.load(getClass().getResource("MenuPc.fxml"));
-//
-//        Scene scene = new Scene(root);
-//
-//        stage.setTitle("Calculadora Científica");
-//        stage.setScene(scene);
-//        stage.setResizable(false);
-//        stage.show();
-//    }
-//
-//    public static void main(String[] args) {
-//        launch(args);
-//    }
 }
