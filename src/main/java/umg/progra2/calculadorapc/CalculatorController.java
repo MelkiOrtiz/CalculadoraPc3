@@ -5,10 +5,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.fxml.Initializable;
-import umg.dem1.Metodos.Impropias.LogicaImpropias;
-import umg.dem1.Metodos.Sustitucion.LogicaSustitucion;
-import umg.dem1.Metodos.Trigonometricas.LogicaTrigonometrica;
-import umg.dem1.Metodos.VolumenSolido.Arandelas;
+import umg.progra2.Metodos.Impropias.LogicaImpropias;
+import umg.progra2.Metodos.Sustitucion.LogicaSustitucion;
+import umg.progra2.Metodos.Trigonometricas.LogicaTrigonometrica;
+import umg.progra2.Metodos.VolumenSolido.Arandelas;
+
 
 import java.net.URL;
 import java.util.ResourceBundle;

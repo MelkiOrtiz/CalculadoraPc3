@@ -68,6 +68,23 @@
       <artifactId>slf4j-simple</artifactId>
       <version>1.7.32</version>
     </dependency>
+    <dependency>
+      <groupId>net.objecthunter</groupId>
+      <artifactId>exp4j</artifactId>
+      <version>0.4.8</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.jfree</groupId>
+      <artifactId>jfreechart</artifactId>
+      <version>1.5.5</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-math3</artifactId>
+      <version>3.6.1</version>
+    </dependency>
 
   </dependencies>
 

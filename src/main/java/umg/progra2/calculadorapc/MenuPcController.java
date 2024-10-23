@@ -53,6 +53,7 @@ public class MenuPcController {
     private void handleSustitucion(ActionEvent event) {
         abrirNuevaVentana();
         cerrarVentana(event);
+        int opcion = 1;
 
     }
 
