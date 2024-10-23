@@ -1,11 +1,382 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="umg.progra2.calculadorapc.MenuPc">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: FFF8F0;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="umg.progra2.calculadorapc.MenuPcController">
    <children>
-
+      <AnchorPane layoutX="-5.0" layoutY="-5.0" prefHeight="66.0" prefWidth="908.0" style="-fx-background-color: FFF8F0;">
+         <children>
+            <ImageView fitHeight="43.0" fitWidth="49.0" layoutX="42.0" layoutY="14.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@UmgLogo.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="98.0" layoutY="27.0" text="Cálculo II" textFill="#ff7b00">
+               <font>
+                  <Font name="Arial Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="748.0" layoutY="26.0" text="Proyecto Final" textFill="#ff7b00">
+               <font>
+                  <Font name="Arial Bold" size="17.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="60.0" prefHeight="167.0" prefWidth="903.0" style="-fx-background-color: FF7B00;">
+         <children>
+            <Label alignment="CENTER" layoutX="172.0" layoutY="38.0" text="CALCULADORA DE INTEGRALES" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Gill Sans MT Condensed" size="62.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="238.0" layoutY="113.0" text="Aplicación de temas vistos a lo largo del semestre" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="19.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Label alignment="CENTER" layoutX="295.0" layoutY="262.0" text="Selecciona el tema que deseas resolver:" textFill="#626262">
+         <font>
+            <Font name="Arial" size="17.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="27.0" layoutY="309.0" prefHeight="78.0" prefWidth="154.0" style="-fx-background-color: #078FC5;">
+         <effect>
+            <DropShadow blurType="GAUSSIAN" height="33.6" offsetX="5.0" offsetY="5.0" radius="15.6875" width="31.15">
+               <color>
+                  <Color red="0.7647058963775635" green="0.7411764860153198" blue="0.7411764860153198" />
+               </color>
+            </DropShadow>
+         </effect>
+         <children>
+            <ImageView fitHeight="32.0" fitWidth="31.0" layoutX="6.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@IconoIntegral.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" layoutX="31.0" layoutY="14.0" text="1" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnSustitucion" layoutX="8.0" layoutY="46.0" mnemonicParsing="false" style="-fx-background-color: #078FC5;" text="Método de sustitución" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="199.0" layoutY="309.0" prefHeight="78.0" prefWidth="154.0" style="-fx-background-color: A5BE00;">
+         <effect>
+            <DropShadow blurType="GAUSSIAN" height="33.6" offsetX="5.0" offsetY="5.0" radius="15.6875" width="31.15">
+               <color>
+                  <Color red="0.7647058963775635" green="0.7411764860153198" blue="0.7411764860153198" />
+               </color>
+            </DropShadow>
+         </effect>
+         <children>
+            <ImageView fitHeight="32.0" fitWidth="31.0" layoutX="6.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@IconoIntegral.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" layoutX="31.0" layoutY="14.0" text="2" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnPorPartes" layoutX="8.0" layoutY="46.0" mnemonicParsing="false" style="-fx-background-color: A5BE00;" text="Método por Partes" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="371.0" layoutY="309.0" prefHeight="78.0" prefWidth="154.0" style="-fx-background-color: FFC300;">
+         <effect>
+            <DropShadow blurType="GAUSSIAN" height="33.6" offsetX="5.0" offsetY="5.0" radius="15.6875" width="31.15">
+               <color>
+                  <Color red="0.7647058963775635" green="0.7411764860153198" blue="0.7411764860153198" />
+               </color>
+            </DropShadow>
+         </effect>
+         <children>
+            <ImageView fitHeight="32.0" fitWidth="31.0" layoutX="6.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@IconoIntegral.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" layoutX="31.0" layoutY="14.0" text="3" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnTrigonometricas" layoutX="8.0" layoutY="36.0" mnemonicParsing="false" style="-fx-background-color: FFC300;" text="Potencias de Funciones&#10;Trigonométricas" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="544.0" layoutY="309.0" prefHeight="78.0" prefWidth="154.0" style="-fx-background-color: d90429;">
+         <effect>
+            <DropShadow blurType="GAUSSIAN" height="33.6" offsetX="5.0" offsetY="5.0" radius="15.6875" width="31.15">
+               <color>
+                  <Color red="0.7647058963775635" green="0.7411764860153198" blue="0.7411764860153198" />
+               </color>
+            </DropShadow>
+         </effect>
+         <children>
+            <ImageView fitHeight="32.0" fitWidth="31.0" layoutX="6.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@IconoIntegral.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" layoutX="31.0" layoutY="14.0" text="4" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnImpropias" layoutX="8.0" layoutY="46.0" mnemonicParsing="false" style="-fx-background-color: d90429;" text="Integrales Impropias" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="716.0" layoutY="309.0" prefHeight="78.0" prefWidth="154.0" style="-fx-background-color: #2ec4b6;">
+         <effect>
+            <DropShadow blurType="GAUSSIAN" height="33.6" offsetX="5.0" offsetY="5.0" radius="15.6875" width="31.15">
+               <color>
+                  <Color red="0.7647058963775635" green="0.7411764860153198" blue="0.7411764860153198" />
+               </color>
+            </DropShadow>
+         </effect>
+         <children>
+            <ImageView fitHeight="32.0" fitWidth="31.0" layoutX="6.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@IconoIntegral.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" layoutX="31.0" layoutY="14.0" text="5" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnAreaBajoCurva" layoutX="8.0" layoutY="46.0" mnemonicParsing="false" style="-fx-background-color: #2ec4b6;" text="Área Bajo la Curva" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="111.0" layoutY="407.0" prefHeight="78.0" prefWidth="154.0" style="-fx-background-color: #ff5d8f;">
+         <effect>
+            <DropShadow blurType="GAUSSIAN" height="33.6" offsetX="5.0" offsetY="5.0" radius="15.6875" width="31.15">
+               <color>
+                  <Color red="0.7647058963775635" green="0.7411764860153198" blue="0.7411764860153198" />
+               </color>
+            </DropShadow>
+         </effect>
+         <children>
+            <ImageView fitHeight="32.0" fitWidth="31.0" layoutX="6.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@IconoIntegral.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" layoutX="31.0" layoutY="14.0" text="6" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnVolumenSolidos" layoutX="8.0" layoutY="46.0" mnemonicParsing="false" style="-fx-background-color: #ff5d8f;" text="Volumen de Sólidos" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="283.0" layoutY="407.0" prefHeight="78.0" prefWidth="154.0" style="-fx-background-color: #9d4edd;">
+         <effect>
+            <DropShadow blurType="GAUSSIAN" height="33.6" offsetX="5.0" offsetY="5.0" radius="15.6875" width="31.15">
+               <color>
+                  <Color red="0.7647058963775635" green="0.7411764860153198" blue="0.7411764860153198" />
+               </color>
+            </DropShadow>
+         </effect>
+         <children>
+            <ImageView fitHeight="32.0" fitWidth="31.0" layoutX="6.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@IconoIntegral.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" layoutX="31.0" layoutY="14.0" text="7" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnAreaSuperficieRevolucion" layoutX="8.0" layoutY="36.0" mnemonicParsing="false" style="-fx-background-color: #9d4edd;" text="Área de una Superficie&#10;en Revolución" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="628.0" layoutY="407.0" prefHeight="78.0" prefWidth="154.0" style="-fx-background-color: #85A9FF;">
+         <effect>
+            <DropShadow blurType="GAUSSIAN" height="33.6" offsetX="5.0" offsetY="5.0" radius="15.6875" width="31.15">
+               <color>
+                  <Color red="0.7647058963775635" green="0.7411764860153198" blue="0.7411764860153198" />
+               </color>
+            </DropShadow>
+         </effect>
+         <children>
+            <ImageView fitHeight="32.0" fitWidth="31.0" layoutX="6.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@IconoIntegral.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" layoutX="31.0" layoutY="14.0" text="9" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnCentroides" layoutX="8.0" layoutY="36.0" mnemonicParsing="false" style="-fx-background-color: #85A9FF;" text="Centros de Masa y &#10;Centroides" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="456.0" layoutY="407.0" prefHeight="78.0" prefWidth="154.0" style="-fx-background-color: #d68c45;">
+         <effect>
+            <DropShadow blurType="GAUSSIAN" height="33.6" offsetX="5.0" offsetY="5.0" radius="15.6875" width="31.15">
+               <color>
+                  <Color red="0.7647058963775635" green="0.7411764860153198" blue="0.7411764860153198" />
+               </color>
+            </DropShadow>
+         </effect>
+         <children>
+            <ImageView fitHeight="32.0" fitWidth="31.0" layoutX="6.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@IconoIntegral.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" layoutX="31.0" layoutY="14.0" text="8" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnValorPromedio" layoutX="8.0" layoutY="36.0" mnemonicParsing="false" style="-fx-background-color: #d68c45;" text="Valor Promedio de&#10;una Función" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="281.0" layoutY="547.0" prefHeight="78.0" prefWidth="154.0" style="-fx-background-color: #9e0059;">
+         <effect>
+            <DropShadow blurType="GAUSSIAN" height="33.6" offsetX="5.0" offsetY="5.0" radius="15.6875" width="31.15">
+               <color>
+                  <Color red="0.7647058963775635" green="0.7411764860153198" blue="0.7411764860153198" />
+               </color>
+            </DropShadow>
+         </effect>
+         <children>
+            <ImageView fitHeight="30.0" fitWidth="25.0" layoutX="6.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@IconoDerivada.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" layoutX="31.0" layoutY="14.0" text="10" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnDerivadasParciales" layoutX="8.0" layoutY="46.0" mnemonicParsing="false" style="-fx-background-color: #9e0059;" text="Derivadas Parciales" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="453.0" layoutY="547.0" prefHeight="78.0" prefWidth="154.0" style="-fx-background-color: #25a18e;">
+         <effect>
+            <DropShadow blurType="GAUSSIAN" height="33.6" offsetX="5.0" offsetY="5.0" radius="15.6875" width="31.15">
+               <color>
+                  <Color red="0.7647058963775635" green="0.7411764860153198" blue="0.7411764860153198" />
+               </color>
+            </DropShadow>
+         </effect>
+         <children>
+            <Label alignment="CENTER" layoutX="31.0" layoutY="14.0" text="11" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnReglaCadenaDosVariables" layoutX="8.0" layoutY="36.0" mnemonicParsing="false" style="-fx-background-color: #25a18e;" text="Regla de Cadena para&#10;Funciones de 2 Variables" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <ImageView fitHeight="30.0" fitWidth="25.0" layoutX="6.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@IconoDerivada.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <Label alignment="CENTER" layoutX="360.0" layoutY="511.0" text="Temas sobre derivadas:" textFill="#626262">
+         <font>
+            <Font name="Arial" size="17.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutY="643.0" prefHeight="8.0" prefWidth="901.0" style="-fx-background-color: FF7B00;" />
    </children>
+   <cursor>
+      <Cursor fx:constant="DISAPPEAR" />
+   </cursor>
 </AnchorPane>
