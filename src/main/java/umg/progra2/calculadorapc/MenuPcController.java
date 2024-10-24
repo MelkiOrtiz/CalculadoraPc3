@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
+
 public class MenuPcController {
 
     @FXML
@@ -35,6 +36,7 @@ public class MenuPcController {
     private Button btnReglaCadenaDosVariables;
     private Stage stage;
 
+
     @FXML
     public void initialize() {
         btnSustitucion.setOnAction(this::handleSustitucion);
@@ -48,53 +50,63 @@ public class MenuPcController {
         btnCentroides.setOnAction(this::handleCentroides);
         btnDerivadasParciales.setOnAction(this::handleDerivadasParciales);
         btnReglaCadenaDosVariables.setOnAction(this::handleReglaCadenaDosVariables);
+
     }
 
     private void handleSustitucion(ActionEvent event) {
         abrirNuevaVentana();
         cerrarVentana(event);
-        int opcion = 1;
-
     }
 
     private void handlePorPartes(ActionEvent event) {
-
+        abrirNuevaVentana();
+        cerrarVentana(event);
     }
 
     private void handleTrigonometricas(ActionEvent event) {
-
+        abrirNuevaVentana();
+        cerrarVentana(event);
     }
 
     private void handleImpropias(ActionEvent event) {
-
+        abrirNuevaVentana();
+        cerrarVentana(event);
     }
 
     private void handleAreaBajoCurva(ActionEvent event) {
-
+        abrirNuevaVentana();
+        cerrarVentana(event);
     }
 
     private void handleVolumenSolidos(ActionEvent event) {
-
+        abrirNuevaVentana();
+        cerrarVentana(event);
     }
 
     private void handleAreaSuperficieRevolucion(ActionEvent event) {
-
+        abrirNuevaVentana();
+        cerrarVentana(event);
     }
 
     private void handleValorPromedio(ActionEvent event) {
+        abrirNuevaVentana();
+        cerrarVentana(event);
 
     }
 
     private void handleCentroides(ActionEvent event) {
-
+        abrirNuevaVentana();
+        cerrarVentana(event);
     }
 
     private void handleDerivadasParciales(ActionEvent event) {
-
+        abrirNuevaVentana();
+        cerrarVentana(event);
     }
 
     private void handleReglaCadenaDosVariables(ActionEvent event) {
-
+        abrirNuevaVentana();
+        cerrarVentana(event);
     }
 
     @FXML

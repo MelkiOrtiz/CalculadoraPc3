@@ -16,7 +16,7 @@ import umg.progra2.Metodos.VolumenSolido.Cascarones;
 import umg.progra2.Metodos.utilidades.GraficadorArandelas;
 import umg.progra2.Metodos.utilidades.GraficadorCascarones;
 
-
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.function.BiFunction;
@@ -27,6 +27,10 @@ public class CalculatorController implements Initializable {
     public TextField display2;
     @FXML
     private TextField display;
+    @FXML
+    public Button igual;
+    @FXML
+    public Button siguiente;
 
 
     private double num1 = 0;
@@ -36,20 +40,74 @@ public class CalculatorController implements Initializable {
     private double memory = 0;
     private double answer = 0;
 
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        display.setText("");
-        display2.setText("Ingresa la funcion que deseas integrar (≧∇≦)ﾉ");
-        display2.setText("Ingresa la función para integrar (usa 'x' como variable, por ejemplo: exp(-x)) (≧∇≦)ﾉ");
+        MensajeInicial();
+    }
 
-        if (display.toString().equals("1")){
-            display2.setText("Ingresa la función para integrar (usa 'x' como variable, por ejemplo: exp(-x)) (≧∇≦)ﾉ");
+    public void MensajeInicial() {
+        switch (mode) {
+            case "1":
+                display.setText("");
+                display2.setText("Ingresa la función para integrar por sustitución (≧∇≦)ﾉ");
+                siguiente.setVisible(false);
+                break;
+            case "2":
+                display.setText("");
+                display2.setText("Ingresa la función para integrar por partes (≧∇≦)ﾉ");
+                siguiente.setVisible(false);
+                break;
+            case "3":
+                display.setText("");
+                display2.setText("Ingresa la función trigonométrica para integrar (≧∇≦)ﾉ");
+                siguiente.setVisible(false);
+                break;
+            case "4":
+                display.setText("");
+                display2.setText("Ingresa la función para la integral impropia (≧∇≦)ﾉ");
+                igual.setVisible(false);
+                break;
+            case "5":
+                display.setText("");
+                display2.setText("Ingresa el eje para calcular el área bajo la curva (≧∇≦)ﾉ");
+                igual.setVisible(false);
+                break;
+            case "6":
+                display.setText("");
+                display2.setText("Ingresa el eje para calcular el volumen del sólido (≧∇≦)ﾉ");
+                igual.setVisible(false);
+                break;
+            case "7":
+                display.setText("");
+                display2.setText("Ingresa el eje para calcular el área de superficie de revolución (≧∇≦)ﾉ");
+                igual.setVisible(false);
+                break;
+            case "8":
+                display.setText("");
+                display2.setText("Ingresa la función para calcular el valor promedio (≧∇≦)ﾉ");
+                igual.setVisible(false);
+                break;
+            case "9":
+                display.setText("");
+                display2.setText("Ingresa la función para calcular los centroides (≧∇≦)ﾉ");
+                igual.setVisible(false);
+                break;
+            case "10":
+                display.setText("");
+                display2.setText("Ingresa la función para calcular las derivadas parciales (≧∇≦)ﾉ");
+                igual.setVisible(false);
+                break;
+            case "11":
+                display.setText("");
+                display2.setText("Ingresa la función para aplicar la regla de la cadena (≧∇≦)ﾉ");
+                igual.setVisible(false);
+                break;
+            default:
+                display.setText("");
+                display2.setText("¡Bienvenido a la calculadora! (≧∇≦)ﾉ");
+                break;
         }
-
-
-//        Platform.runLater(() -> {
-//            display.positionCaret(display.getText().length());
-//        });
     }
 
     @FXML
@@ -76,9 +134,26 @@ public class CalculatorController implements Initializable {
                 handleDivision();
                 break;
             case "=":
-//                calculateResult();
-//                calcularTrigonometricas();
-                calcularSustitucion();
+                switch (mode){
+                    case "1":
+                        calcularSustitucion();
+                        break;
+                    case "2", "3":
+                        calcularTrigonometricasyPartes();
+                        break;
+                    case "8":
+
+                        break;
+                    case "9":
+
+                        break;
+                    case "10":
+
+                        break;
+                    case "11":
+
+                        break;
+                }
                 break;
             case "DEL":
                 handleDelete();
@@ -131,11 +206,20 @@ public class CalculatorController implements Initializable {
                 handleDx();
                 break;
             case "->":
-//                calcularImpropia();
-//                calcularVolumenArandelasDiscos();
-//                calcularAreaBajoCurva();
-//                calcularDefinidas();
-//                calcularVolumenCascarones();
+                switch (mode){
+                    case "4":
+                        calcularImpropia();
+                        break;
+                    case "5":
+                        calcularAreaBajoCurva();
+                        break;
+                    case "6":
+                        calcularVolumenCascarones();
+                        break;
+                    case "7":
+                        calcularDefinidas();
+                        break;
+                }
                 break;
         }
     }
