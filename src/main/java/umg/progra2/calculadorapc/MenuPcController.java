@@ -36,105 +36,39 @@ public class MenuPcController {
     private Button btnReglaCadenaDosVariables;
     private Stage stage;
 
-
     @FXML
     public void initialize() {
-        btnSustitucion.setOnAction(this::handleSustitucion);
-        btnPorPartes.setOnAction(this::handlePorPartes);
-        btnTrigonometricas.setOnAction(this::handleTrigonometricas);
-        btnImpropias.setOnAction(this::handleImpropias);
-        btnAreaBajoCurva.setOnAction(this::handleAreaBajoCurva);
-        btnVolumenSolidos.setOnAction(this::handleVolumenSolidos);
-        btnAreaSuperficieRevolucion.setOnAction(this::handleAreaSuperficieRevolucion);
-        btnValorPromedio.setOnAction(this::handleValorPromedio);
-        btnCentroides.setOnAction(this::handleCentroides);
-        btnDerivadasParciales.setOnAction(this::handleDerivadasParciales);
-        btnReglaCadenaDosVariables.setOnAction(this::handleReglaCadenaDosVariables);
-
+        btnSustitucion.setOnAction(event -> handleButton(event, "1"));
+        btnPorPartes.setOnAction(event -> handleButton(event, "2"));
+        btnTrigonometricas.setOnAction(event -> handleButton(event, "3"));
+        btnImpropias.setOnAction(event -> handleButton(event, "4"));
+        btnAreaBajoCurva.setOnAction(event -> handleButton(event, "5"));
+        btnVolumenSolidos.setOnAction(event -> handleButton(event, "6"));
+        btnAreaSuperficieRevolucion.setOnAction(event -> handleButton(event, "7"));
+        btnValorPromedio.setOnAction(event -> handleButton(event, "8"));
+        btnCentroides.setOnAction(event -> handleButton(event, "9"));
+        btnDerivadasParciales.setOnAction(event -> handleButton(event, "10"));
+        btnReglaCadenaDosVariables.setOnAction(event -> handleButton(event, "11"));
     }
 
-    private void handleSustitucion(ActionEvent event) {
-        abrirNuevaVentana();
-        cerrarVentana(event);
-    }
-
-    private void handlePorPartes(ActionEvent event) {
-        abrirNuevaVentana();
-        cerrarVentana(event);
-    }
-
-    private void handleTrigonometricas(ActionEvent event) {
-        abrirNuevaVentana();
-        cerrarVentana(event);
-    }
-
-    private void handleImpropias(ActionEvent event) {
-        abrirNuevaVentana();
-        cerrarVentana(event);
-    }
-
-    private void handleAreaBajoCurva(ActionEvent event) {
-        abrirNuevaVentana();
-        cerrarVentana(event);
-    }
-
-    private void handleVolumenSolidos(ActionEvent event) {
-        abrirNuevaVentana();
-        cerrarVentana(event);
-    }
-
-    private void handleAreaSuperficieRevolucion(ActionEvent event) {
-        abrirNuevaVentana();
-        cerrarVentana(event);
-    }
-
-    private void handleValorPromedio(ActionEvent event) {
-        abrirNuevaVentana();
-        cerrarVentana(event);
-
-    }
-
-    private void handleCentroides(ActionEvent event) {
-        abrirNuevaVentana();
-        cerrarVentana(event);
-    }
-
-    private void handleDerivadasParciales(ActionEvent event) {
-        abrirNuevaVentana();
-        cerrarVentana(event);
-    }
-
-    private void handleReglaCadenaDosVariables(ActionEvent event) {
-        abrirNuevaVentana();
-        cerrarVentana(event);
-    }
-
-    @FXML
-    private void abrirNuevaVentana() {
+    private void handleButton(ActionEvent event, String mode) {
         try {
-            // Cargar el archivo FXML de la nueva ventana
             FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
             Parent root = loader.load();
 
-            // Crear una nueva escena
-            Scene scene = new Scene(root);
+            CalculatorController controller = loader.getController();
+            controller.setMode(mode);
 
-            // Crear un nuevo stage (ventana)
+            Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.setTitle("Calculadora Integrales");
             stage.setScene(scene);
-
-            // Mostrar la nueva ventana
             stage.show();
 
+            ((Stage) ((Node) event.getSource()).getScene().getWindow()).close();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
-    @FXML
-    private void cerrarVentana(ActionEvent event) {
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.close();
-    }
 }
+

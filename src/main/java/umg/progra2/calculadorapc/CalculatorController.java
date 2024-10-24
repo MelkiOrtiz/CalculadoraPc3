@@ -1,10 +1,16 @@
 package umg.progra2.calculadorapc;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.fxml.Initializable;
+import javafx.stage.Stage;
 import org.apache.commons.math3.analysis.UnivariateFunction;
 import umg.progra2.Metodos.AreaBajoCurva.LogicaAreaBajoCurva;
 import umg.progra2.Metodos.Definidas.LogicaDefinidas;
@@ -26,6 +32,8 @@ public class CalculatorController implements Initializable {
 
     public TextField display2;
     @FXML
+    public Button regresar;
+    @FXML
     private TextField display;
     @FXML
     public Button igual;
@@ -39,15 +47,22 @@ public class CalculatorController implements Initializable {
     private boolean start = true;
     private double memory = 0;
     private double answer = 0;
+    private String expresionGuardadaF = "";
+    private String expresionGuardadaG = "";
+    private Double valorA = null;
+    private Double valorB = null;
+    private int n = 0;
+    private String eje = "x";
+    private char ejefinal = '\u0000';
+    private int paso = 0;  // Para controlar el flujo de entrada
+    private String mode = "0"; // Default mode
 
-
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        MensajeInicial();
+    public void setMode(String mode) {
+        this.mode = mode;
+        MensajeInicial(); // Update the message when mode changes
     }
-
     public void MensajeInicial() {
-        switch (mode) {
+        switch (this.mode) {
             case "1":
                 display.setText("");
                 display2.setText("Ingresa la función para integrar por sustitución (≧∇≦)ﾉ");
@@ -80,7 +95,7 @@ public class CalculatorController implements Initializable {
                 break;
             case "7":
                 display.setText("");
-                display2.setText("Ingresa el eje para calcular el área de superficie de revolución (≧∇≦)ﾉ");
+                display2.setText("Ingresa el eje para calcular la integral definida (≧∇≦)ﾉ");
                 igual.setVisible(false);
                 break;
             case "8":
@@ -110,6 +125,13 @@ public class CalculatorController implements Initializable {
         }
     }
 
+
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+    }
+
+
     @FXML
     private void handleButtonAction(MouseEvent event) {
         Button button = (Button) event.getSource();
@@ -134,7 +156,7 @@ public class CalculatorController implements Initializable {
                 handleDivision();
                 break;
             case "=":
-                switch (mode){
+                switch (this.mode){
                     case "1":
                         calcularSustitucion();
                         break;
@@ -206,7 +228,7 @@ public class CalculatorController implements Initializable {
                 handleDx();
                 break;
             case "->":
-                switch (mode){
+                switch (this.mode){
                     case "4":
                         calcularImpropia();
                         break;
@@ -224,10 +246,28 @@ public class CalculatorController implements Initializable {
         }
     }
 
+    @FXML
     private void handleNumber(String number) {
 
             display.setText(display.getText() + number);
+    }
 
+    @FXML
+    private void handleReturnToMenu(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("MenuPc.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            Stage currentStage = new Stage();
+            currentStage.setScene(scene);
+            currentStage.setTitle("Menú Principal");
+            currentStage.centerOnScreen();
+            currentStage.show();
+            ((Stage) ((Node) event.getSource()).getScene().getWindow()).close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void handleBasicOperator(String op) {
@@ -272,14 +312,7 @@ public class CalculatorController implements Initializable {
     }
 
 
-    private String expresionGuardadaF = "";
-    private String expresionGuardadaG = "";
-    private Double valorA = null;
-    private Double valorB = null;
-    private int n = 0;
-    private String eje = "x";
-    private char ejefinal = '\u0000';
-    private int paso = 0;  // Para controlar el flujo de entrada
+
 
 
     //REVISAR PQ NO FUNCA, YA SE PORQUE NO FUNCA PERO TA PERRO ARREGLARLO
@@ -430,86 +463,6 @@ public class CalculatorController implements Initializable {
                     LogicaAreaBajoCurva logicaAreaBajoCurva = new LogicaAreaBajoCurva();
                     display2.setText("El resultado es:");
                     display.setText(logicaAreaBajoCurva.calcularAreaBajoLaCurva(expresionGuardadaF, valorA, valorB, eje)+" u²");
-            }
-        } catch (Exception e) {
-            display2.setText("Error inesperado: " + e.getMessage() + " (╯°□°）╯");
-            // Reiniciar todo en caso de error
-            paso = 0;
-            expresionGuardadaF = "";
-            valorA = null;
-            valorB = null;
-            n = 0;
-        }
-    }
-
-    public void calcularVolumenArandelasDiscos() {
-        try {
-            String textoActual = display.getText().trim();
-            //AQUI SE TOMA COMO QUE AL INICIAR LA CALCULADORA TE PIDE QUE INGRESES EL EJE
-            switch (paso) {
-                case 0:
-                    if (textoActual.isEmpty()) {
-                        display2.setText("¡Debes ingresar el eje! (╯°□°）╯");
-                        return;
-                    }
-                    eje = textoActual;
-                    ejefinal =eje.charAt(0);
-                    display2.setText("Ingresa la función F (｀∀´)Ψ");
-                    display.setText("");
-                    paso++;
-                    break;
-
-                case 1:
-                    expresionGuardadaF = textoActual;
-                    display2.setText("Ingresa la función G (｀∀´)Ψ");
-                    display.setText("");
-                    paso++;
-                    break;
-
-                case 2:
-                    expresionGuardadaG = textoActual;
-                    display2.setText("Ingresa el valor de a (límite inferior) (⌐■_■)");
-                    display.setText("");
-                    paso++;
-                    break;
-
-                case 3:
-                    if (textoActual.equalsIgnoreCase("-∞")) {
-                        valorA = Double.NEGATIVE_INFINITY;
-                    } else {
-                        try {
-                            valorA = Double.parseDouble(textoActual);
-                        } catch (NumberFormatException e) {
-                            display2.setText("¡Ingresa un número válido o '-∞'! (╯°□°）╯");
-                            return;
-                        }
-                    }
-                    display2.setText("Ingresa el valor de b (límite superior) (⌐■_■)");
-                    display.setText("");
-                    paso++;
-                    break;
-
-                case 4:
-                    if (textoActual.equalsIgnoreCase("∞")) {
-                        valorB = Double.POSITIVE_INFINITY;
-                    } else {
-                        try {
-                            valorB = Double.parseDouble(textoActual);
-                        } catch (NumberFormatException e) {
-                            display2.setText("¡Ingresa un número válido o '∞'! (╯°□°）╯");
-                            return;
-                        }
-                    }
-                    Arandelas arandelas = new Arandelas();
-                    UnivariateFunction funcion = arandelas.crearFuncion(expresionGuardadaF,expresionGuardadaG,ejefinal);
-
-                    double volumen = arandelas.calcularVolumen(funcion,  valorA, valorB);
-                    double volumenRedondeado = Math.round(volumen * 1000.0) / 1000.0;
-                    display2.setText("El resultado es:");
-                    display.setText(String.valueOf(volumenRedondeado)+" u³");
-                    GraficadorArandelas.graficarFunciones(expresionGuardadaF, expresionGuardadaG, valorA, valorB, ejefinal, arandelas);
-
-
             }
         } catch (Exception e) {
             display2.setText("Error inesperado: " + e.getMessage() + " (╯°□°）╯");
@@ -713,6 +666,87 @@ public class CalculatorController implements Initializable {
         display.setText(expression+" +C");
     }
 
+    public void calcularVolumenArandelasDiscos() {
+        try {
+            String textoActual = display.getText().trim();
+            //AQUI SE TOMA COMO QUE AL INICIAR LA CALCULADORA TE PIDE QUE INGRESES EL EJE
+            switch (paso) {
+                case 0:
+                    if (textoActual.isEmpty()) {
+                        display2.setText("¡Debes ingresar el eje! (╯°□°）╯");
+                        return;
+                    }
+                    eje = textoActual;
+                    ejefinal =eje.charAt(0);
+                    display2.setText("Ingresa la función F (｀∀´)Ψ");
+                    display.setText("");
+                    paso++;
+                    break;
+
+                case 1:
+                    expresionGuardadaF = textoActual;
+                    display2.setText("Ingresa la función G (｀∀´)Ψ");
+                    display.setText("");
+                    paso++;
+                    break;
+
+                case 2:
+                    expresionGuardadaG = textoActual;
+                    display2.setText("Ingresa el valor de a (límite inferior) (⌐■_■)");
+                    display.setText("");
+                    paso++;
+                    break;
+
+                case 3:
+                    if (textoActual.equalsIgnoreCase("-∞")) {
+                        valorA = Double.NEGATIVE_INFINITY;
+                    } else {
+                        try {
+                            valorA = Double.parseDouble(textoActual);
+                        } catch (NumberFormatException e) {
+                            display2.setText("¡Ingresa un número válido o '-∞'! (╯°□°）╯");
+                            return;
+                        }
+                    }
+                    display2.setText("Ingresa el valor de b (límite superior) (⌐■_■)");
+                    display.setText("");
+                    paso++;
+                    break;
+
+                case 4:
+                    if (textoActual.equalsIgnoreCase("∞")) {
+                        valorB = Double.POSITIVE_INFINITY;
+                    } else {
+                        try {
+                            valorB = Double.parseDouble(textoActual);
+                        } catch (NumberFormatException e) {
+                            display2.setText("¡Ingresa un número válido o '∞'! (╯°□°）╯");
+                            return;
+                        }
+                    }
+                    Arandelas arandelas = new Arandelas();
+                    UnivariateFunction funcion = arandelas.crearFuncion(expresionGuardadaF,expresionGuardadaG,ejefinal);
+
+                    double volumen = arandelas.calcularVolumen(funcion,  valorA, valorB);
+                    double volumenRedondeado = Math.round(volumen * 1000.0) / 1000.0;
+                    display2.setText("El resultado es:");
+                    display.setText(String.valueOf(volumenRedondeado)+" u³");
+                    GraficadorArandelas.graficarFunciones(expresionGuardadaF, expresionGuardadaG, valorA, valorB, ejefinal, arandelas);
+
+
+            }
+        } catch (Exception e) {
+            display2.setText("Error inesperado: " + e.getMessage() + " (╯°□°）╯");
+            // Reiniciar todo en caso de error
+            paso = 0;
+            expresionGuardadaF = "";
+            valorA = null;
+            valorB = null;
+            n = 0;
+        }
+    }
+
+
 
     private void handleDelete() {
         String text = display.getText();
@@ -726,6 +760,7 @@ public class CalculatorController implements Initializable {
     }
 
     private void clearAll() {
+        MensajeInicial();
         display.setText("");
         operator = "";
         start = true;
@@ -803,13 +838,13 @@ public class CalculatorController implements Initializable {
         return n * factorial(n - 1);
     }
 
-    // Para multiplicación (x)
+    // Para multiplicación
     private void handleMultiplication() {
         display.setText(display.getText()+"x");
         start = true;
     }
 
-    // Para suma (+)
+    // Para suma
     private void handleAddition() {
         display.setText(display.getText()+"+");
         start = true;
