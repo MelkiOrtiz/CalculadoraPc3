@@ -18,12 +18,10 @@ public class GraficadorDiscos extends JFrame {
     private double limInferior;
     private double limSuperior;
     private String funcionF;
-    private String funcionG;
     private char eje;
 
-    public GraficadorDiscos(String funcionF, String funcionG, double limInferior, double limSuperior, char eje) {
+    public GraficadorDiscos(String funcionF, double limInferior, double limSuperior, char eje) {
         this.funcionF = funcionF;
-        this.funcionG = funcionG;
         this.limInferior = limInferior;
         this.limSuperior = limSuperior;
         this.eje = eje;
@@ -41,22 +39,18 @@ public class GraficadorDiscos extends JFrame {
 
         // Crear series para las funciones f(x) y g(x)
         XYSeries seriesF = new XYSeries("f(x)");
-        XYSeries seriesG = new XYSeries("g(x)");
 
         // Generar puntos para las funciones
         double paso = (limSuperior - limInferior) / 200;
         for (double x = limInferior; x <= limSuperior; x += paso) {
             if (eje == 'x') {
                 seriesF.add(x, evaluarFuncion(funcionF, x));
-                seriesG.add(x, evaluarFuncion(funcionG, x));
             } else {
                 seriesF.add(evaluarFuncion(funcionF, x), x);
-                seriesG.add(evaluarFuncion(funcionG, x), x);
             }
         }
 
         dataset.addSeries(seriesF);
-        dataset.addSeries(seriesG);
 
         // Crear la gráfica
         String ejeX = (eje == 'x') ? "X" : "R";

@@ -8,10 +8,19 @@ import java.util.Scanner;
 
 public class Cascarones {
 
+    private char variable;
+
+    public char getVariable() {
+        return variable;
+    }
+
+    public void setVariable(char variable) {
+        this.variable = variable;
+    }
+
     public void funcionamiento(){
         Scanner sc = new Scanner(System.in);
         char eje = '\u0000';
-        char variable = '\u0000';
 
         System.out.println("\n\nDefine el eje de rotación, ingresando:\n" +
                 "1. Si el eje de rotación es el X.\n" +
@@ -132,7 +141,7 @@ public class Cascarones {
                     double valor = parseFactor();
                     for (;;) {
                         if (eat('*')) valor *= parseFactor(); // Multiplicación
-                        else if (eat('/')) valor /= parseFactor(); // División
+                        else if (eat('÷')) valor /= parseFactor(); // División
                         else return valor;
                     }
                 }

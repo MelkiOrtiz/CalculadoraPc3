@@ -8,9 +8,7 @@ import java.util.Scanner;
 
 public class Discos {
 
-
     public void funcionamiento(){
-
         Scanner sc = new Scanner(System.in);
         char eje = '\u0000';
 
@@ -21,11 +19,8 @@ public class Discos {
 
         if(respuestaEje.equals("1")){ //EJE x
             eje = 'x';
-            System.out.println("\nIngresa la función F en términos de x (ejemplo: x*x para f(x) = x^2): ");
-            String inputFuncionF = sc.nextLine();
-
-            System.out.println("\nIngresa la función G en términos de x (ejemplo: x*x para g(x) = x^2): ");
-            String inputFuncionG = sc.nextLine();
+            System.out.println("\nIngresa la función en términos de x (ejemplo: x*x para f(x) = x^2): ");
+            String inputFuncion = sc.nextLine();
 
             System.out.println("\nIngresa el limite inferior (a): ");
             double limInferior= Double.parseDouble(sc.nextLine());
@@ -33,24 +28,19 @@ public class Discos {
             System.out.println("\nIngresa el limite superior (b): ");
             double limSuperior= Double.parseDouble(sc.nextLine());
 
-            UnivariateFunction funcion = crearFuncion(inputFuncionF, inputFuncionG, eje);  //Funcion con la multiplicación de la funcion f y la funcion g
-
+            UnivariateFunction funcion = crearFuncion(inputFuncion, eje);
             double volumen = calcularVolumen(funcion, limInferior, limSuperior);
             double volumenRedondeado = Math.round(volumen * 1000.0) / 1000.0;
 
             System.out.println("\n\nEl volumen del sólido es: "+volumenRedondeado+" unidades cubicas.");
-
-            GraficadorDiscos graficador = new GraficadorDiscos(inputFuncionF, inputFuncionG, limInferior, limSuperior, eje);
+            GraficadorDiscos graficador = new GraficadorDiscos(inputFuncion, limInferior, limSuperior, eje);
             graficador.mostrarGrafica();
 
             sc.close();
         }else if(respuestaEje.equals("2")){ //EJE Y
             eje = 'y';
-            System.out.println("\nIngresa la función F en términos de y (ejemplo: y*y para f(y) = y^2): ");
-            String inputFuncionF = sc.nextLine();
-
-            System.out.println("\nIngresa la función G en términos de y (ejemplo: y*y para g(y) = y^2): ");
-            String inputFuncionG = sc.nextLine();
+            System.out.println("\nIngresa la función en términos de y (ejemplo: y*y para f(y) = y^2): ");
+            String inputFuncion = sc.nextLine();
 
             System.out.println("\nIngresa el limite inferior (a): ");
             double limInferior= Double.parseDouble(sc.nextLine());
@@ -58,13 +48,12 @@ public class Discos {
             System.out.println("\nIngresa el limite superior (b): ");
             double limSuperior= Double.parseDouble(sc.nextLine());
 
-            UnivariateFunction funcion = crearFuncion(inputFuncionF, inputFuncionG, eje);  //Funcion con la multiplicación de la funcion f y la funcion g
-
+            UnivariateFunction funcion = crearFuncion(inputFuncion, eje);
             double volumen = calcularVolumen(funcion, limInferior, limSuperior);
             double volumenRedondeado = Math.round(volumen * 1000.0) / 1000.0;
 
             System.out.println("\n\nEl volumen del sólido es: "+volumenRedondeado+" unidades cubicas.");
-            GraficadorDiscos graficador = new GraficadorDiscos(inputFuncionF, inputFuncionG, limInferior, limSuperior, eje);
+            GraficadorDiscos graficador = new GraficadorDiscos(inputFuncion, limInferior, limSuperior, eje);
             graficador.mostrarGrafica();
 
             sc.close();
@@ -80,30 +69,27 @@ public class Discos {
     }
 
 
-    public UnivariateFunction crearFuncion(String inputF, String inputG, char eje) {
+    public UnivariateFunction crearFuncion(String input, char eje) {
         return new UnivariateFunction() {
             @Override
             public double value(double variable) {
-                return evalFuncion(inputF, inputG, variable, eje);
+                return evalFuncion(input, variable, eje);
             }
         };
     }
 
 
-    private double evalFuncion(String inputF, String inputG, double valorVariable, char eje) {
-        String expresionF = null;
-        String expresionG = null;
+    private double evalFuncion(String input, double valorVariable, char eje) {
+        String expresion = null;
 
         if(eje=='x'){
-            expresionF = inputF.replace("x", String.valueOf(valorVariable));
-            expresionG = inputG.replace("x", String.valueOf(valorVariable));
+            expresion = input.replace("x", String.valueOf(valorVariable));
         }
         else if (eje=='y') {
-            expresionF = inputF.replace("y", String.valueOf(valorVariable));
-            expresionG = inputG.replace("y", String.valueOf(valorVariable));
+            expresion = input.replace("y", String.valueOf(valorVariable));
         }
 
-        return (evalSimpleExpression(expresionF, eje) * evalSimpleExpression(expresionF, eje)) - (evalSimpleExpression(expresionG, eje) * evalSimpleExpression(expresionG, eje));
+        return evalSimpleExpression(expresion, eje) * evalSimpleExpression(expresion, eje);
     }
 
 
@@ -176,8 +162,10 @@ public class Discos {
                     } else {
                         throw new RuntimeException("Unexpected: " + (char) ch);
                     }
+
                     if (eat('^')) {
-                        x = Math.pow(x, parseFactor());}
+                        x = Math.pow(x, parseFactor());
+                    }
 
                     return x;
                 }
@@ -187,5 +175,6 @@ public class Discos {
             return 0;
         }
     }
+
 
 }

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="250.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="umg.progra2.calculadorapc.ComboBoxVolumenController">
+   <children>
+      <AnchorPane layoutY="-1.0" prefHeight="75.0" prefWidth="401.0" style="-fx-background-color: FFC300;">
+         <children>
+            <Label layoutX="140.0" layoutY="18.0" text="MÉTODOS" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="23.0" />
+               </font>
+            </Label>
+            <Label layoutX="85.0" layoutY="47.0" text="para calcular el Volumen de un Sólido" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Label layoutX="134.0" layoutY="99.0" text="Selecciona un método:" textFill="#595959">
+         <font>
+            <Font name="Arial" size="13.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="comboBoxMetodos" layoutX="125.0" layoutY="137.0" prefWidth="150.0" style="-fx-background-color: EEE1B3;" />
+      <AnchorPane layoutX="-1.0" layoutY="234.0" prefHeight="16.0" prefWidth="401.0" style="-fx-background-color: FFC300;" />
+      <Button fx:id="btnAbrirMetodo" layoutX="179.0" layoutY="181.0" mnemonicParsing="false" style="-fx-background-color: #669BBC;" text="Abrir" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

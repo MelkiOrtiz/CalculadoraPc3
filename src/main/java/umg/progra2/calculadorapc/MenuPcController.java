@@ -53,19 +53,34 @@ public class MenuPcController {
 
     private void handleButton(ActionEvent event, String mode) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
-            Parent root = loader.load();
+            if(!mode.equals("6")) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
+                Parent root = loader.load();
 
-            CalculatorController controller = loader.getController();
-            controller.setMode(mode);
+                CalculatorController controller = loader.getController();
+                controller.setMode(mode);
 
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            stage.setTitle("Calculadora Integrales");
-            stage.setScene(scene);
-            stage.show();
+                Scene scene = new Scene(root);
+                Stage stage = new Stage();
+                stage.setTitle("Calculadora Integrales");
+                stage.setScene(scene);
+                stage.show();
 
-            ((Stage) ((Node) event.getSource()).getScene().getWindow()).close();
+                ((Stage) ((Node) event.getSource()).getScene().getWindow()).close();
+            }else{
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("comboBoxVolumen.fxml"));
+                Parent root = loader.load();
+
+                ComboBoxVolumenController controller = loader.getController();
+
+                Scene scene = new Scene(root);
+                Stage stage = new Stage();
+                stage.setTitle("Métodos Volumenes");
+                stage.setScene(scene);
+                stage.show();
+
+                ((Stage) ((Node) event.getSource()).getScene().getWindow()).close();
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

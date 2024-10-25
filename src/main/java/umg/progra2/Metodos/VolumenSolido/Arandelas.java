@@ -143,7 +143,7 @@ public class Arandelas {
                     double valor = parseFactor();
                     for (;;) {
                         if (eat('*')) valor *= parseFactor(); // Multiplicación
-                        else if (eat('/')) valor /= parseFactor(); // División
+                        else if (eat('÷')) valor /= parseFactor(); // División
                         else return valor;
                     }
                 }
