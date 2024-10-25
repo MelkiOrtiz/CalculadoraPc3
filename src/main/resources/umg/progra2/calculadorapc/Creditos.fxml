@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ScrollPane?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="umg.progra2.calculadorapc.CreditosController">
+    <children>
+        <ScrollPane fitToWidth="true" style="-fx-background: black; -fx-background-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <content>
+                <VBox fx:id="creditContainer" alignment="CENTER" spacing="15.0" style="-fx-background-color: black;">
+                    <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                    </padding>
+                    <children>
+                        <Label text="Calculadoras desarrolladas por:" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #FFE81F;"/>
+
+                        <VBox spacing="8.0" alignment="CENTER">
+                            <Label text="Tulio Rene Alejandro Quintana Amezquita" style="-fx-font-size: 16px; -fx-text-fill: #FFE81F;"/>
+                            <Label text="0905-23-5024" style="-fx-font-size: 14px; -fx-text-fill: #FFE81F;"/>
+
+                            <Label text="Melki Bladimir Ortiz Martinez" style="-fx-font-size: 16px; -fx-text-fill: #FFE81F;"/>
+                            <Label text="0905-23-6329" style="-fx-font-size: 14px; -fx-text-fill: #FFE81F;"/>
+
+                            <Label text="Jairo Leonel Molina Hernández" style="-fx-font-size: 16px; -fx-text-fill: #FFE81F;"/>
+                            <Label text="0905-23-4651" style="-fx-font-size: 14px; -fx-text-fill: #FFE81F;"/>
+
+                            <Label text="Mario Fernando Cerna Najera" style="-fx-font-size: 16px; -fx-text-fill: #FFE81F;"/>
+                            <Label text="0905-23-5025" style="-fx-font-size: 14px; -fx-text-fill: #FFE81F;"/>
+
+                            <Label text="Mijeli Azucena Lucero Burgos" style="-fx-font-size: 16px; -fx-text-fill: #FFE81F;"/>
+                            <Label text="0905-23-5501" style="-fx-font-size: 14px; -fx-text-fill: #FFE81F;"/>
+
+                            <Label text="Blanky Marisol López Marroquín" style="-fx-font-size: 16px; -fx-text-fill: #FFE81F;"/>
+                            <Label text="0905-23-5227" style="-fx-font-size: 14px; -fx-text-fill: #FFE81F;"/>
+
+                            <Label text="Bryan Josue Rivera Hernandez" style="-fx-font-size: 16px; -fx-text-fill: #FFE81F;"/>
+                            <Label text="0905-23-1623" style="-fx-font-size: 14px; -fx-text-fill: #FFE81F;"/>
+                        </VBox>
+
+                        <Separator style="-fx-background-color: #FFE81F;"/>
+
+                        <Label text="Agradecimientos especiales a:" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #FFE81F;"/>
+
+                        <TextArea wrapText="true" editable="false" prefRowCount="20"
+                                  style="-fx-font-size: 14px; -fx-text-fill: #FFE81F; -fx-control-inner-background: black; -fx-background-color: black;">Ansiedad Miedo
+a todas esas noches de desvelo asi como también a mi papá Vegetta777, a las canciones de mi patrona Mon Laferte y de Los Temerarios porque si programar me hacia ponía triste sus canciones también entonces (-) y (-) = (+), agradecer a la formula cuadrática que es superior que factorizar pero ustedes no están preparados para esta conversación, quiero dar las gracias también a Mistborn ya que el haber leído ese libro me hizo crecer como persona. que hablando de persona aprovecho para expresar mi gratitud hacia Atlus por haber cocinado tremenda saga de videojuegos destacando a Persona 3 Reload y Metaphor que son mis gallos para el GOTY de este año. agradecimiento especial a J.H. de la Cruz quien no conoce su historia esta condenado a repetirla pero me quiero poner JH Escobar de la Cruz porque el que no me haga caso lo crucifico... lo bananeo y lo crucifico para que sea serio. Gracias a Oda por seguir dibujando el mejor manga y por el capitulo 1130 ya que 1130 es la variante de Loki del MCI gracias por tanto oda y perdón por tan poco. Me siento muy feliz también ya que este año Linkin Park esta de regreso junto a su nueva vocalista Emily Amstrong la cual esta haciendo un trabajo increibe y el que opine lo contrario que me diga para partirnos en un duelo a muerte con cuchillos. Agradecimiento al random de internet que hackeo el tera de pokemon y por haberlo compartido en internet, me traumo mucho y ahora siento miedo y odio hacia los typlosions pero la gratitud es mas grande. Agradecer a la Nintendo Swich ya que es la mejor consola de videojuegos. A Illojuean y Masi (Vuelvan porfis porfis les estoy dando las gracias pero aun no supero su ruptura) Agradecimiento a Boku No Koko el besto anime RomCom y el que hizo que aun tenga un poco de esperanza hacia el amor. a Karmaland por ser la mejor seria de Minecraft de todos los tiempos. Al Pana Oswaldo poruqe tremenda facha la que tiene su sticker. A Nana la cual es una relacion amor-odio porque me pone triste pero tremendas joyas sus canciones asi como la de " A NEED YOU LOVEEEE I´M A BROKE ROSEE" A las Babymetal. A Obama por haber peleado por los derechos de los Negros esos. Agradecer a las Nutrias de Dedsafio ya que sin ellas la serie no seria lo mismo. A la creación de los transistores ya que sin ellos cualquier cosa tectonogica en general no existienran.
+A Goku, porque si no me daba la energía en cada madrugada con su Genkidama emocional, este proyecto no salía.
+A Keanu Reeves, el tipo más sano del universo, por ser el John Wick de mis problemas y despacharlos con estilo.
+El internet Explorer, que aunque ya no está con nosotros, fue clave para hacerme reflexionar sobre la importancia de la paciencia (y saber que no hay que esperar por cosas que ya están muertas).
+A Shrek porque los ogros tienen capas, pero los proyectos también tienen capas de estrés.
+La Espada Maestra por ayudarme a cortar la procrastinación en pedacitos.
+A las tortugas ninja por enseñarme que la pizza siempre será la mejor recompensa.
+A Tony Hawk y su saga de videojuegos, porque me enseñaron que aunque me caiga 500 veces, siempre puedo hacer un kickflip existencial.
+Nyan Cat, porque su viaje intergaláctico lleno de arcoiris me acompañó en la travesía de este proyecto.
+Bob Esponja por demostrarme que trabajar en el Crustáceo Cascarudo es menos estresante que programar.
+Al buen Chuck Norris, porque incluso él se preguntaría cómo logramos acabar este proyecto sin patear la computadora.
+Bloodborne por enseñarme a seguir intentándolo, aunque la pantalla de "YOU DIED" sea básicamente mi vida diaria.
+A Doctor Strange, porque sin su multiverso no hubiera podido sacar tiempo para hacer todo.
+Rick Astley por nunca abandonarme y por hacerme sentir que a este proyecto nunca le "voy a dar la espalda ni a decepcionar".
+Menciones Honoríficas:
+la abuela de Xhabarrylla
+Los memes de gatos, que siempre estuvieron ahí, compartiendo su sabiduría inmemorial.
+Discord por ser mi sala de terapia digital.
+A la saga de Matrix porque entendí que este código no es tan distinto del código de la vida (excepto que el mío no tiene Keanu para salvarlo).
+Mr. Beast por darme esperanzas de que algún día un millonario me pague por programar.
+A Netflix y sus series que maratoneé en lugar de hacer este proyecto (gracias por las excusas).
+El Windows XP por hacerme sentir nostálgico y recordar tiempos más simples cuando los programas de calculadora no existían.
+Al Photoshop pirata porque, seamos sinceros, ayudó más que nadie a darle imagen a este caos.
+Y por último, pero no menos importante:
+Baby Yoda, porque su ternura me mantuvo cuerdo.
+Los videos de la caída de Edgar, porque me recordaron que todos nos caemos, pero lo importante es que siempre tenemos que reírnos en el proceso.
+A Piedra, Papel o Tijeras, el mejor simulador de decisiones en momentos de crisis.
+A Elon Musk, porque aunque no tiene nada que ver, seguro en alguna línea de tiempo él también está haciendo un programa de calculadoras. Y si no lo está haciendo, pues lo va a tuitear.
+En fin, gracias a todos los que fueron mencionados, y también a los que no, porque siempre hay que agradecer a Diosito, Google y Stack Overflow que, sinceramente, son los verdaderos héroes detrás de cualquier programador.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Y Naser.</TextArea>
+
+                        <Button fx:id="btnCerrar" text="Cerrar" onAction="#cerrarVentana"
+                                style="-fx-font-size: 14px; -fx-padding: 10 20 10 20; -fx-background-color: #FFE81F; -fx-text-fill: black;"/>
+                    </children>
+                </VBox>
+            </content>
+        </ScrollPane>
+    </children>
+</AnchorPane>

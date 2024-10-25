@@ -10,17 +10,22 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.fxml.Initializable;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.apache.commons.math3.analysis.UnivariateFunction;
+import org.matheclipse.core.eval.ExprEvaluator;
 import umg.progra2.Metodos.AreaBajoCurva.LogicaAreaBajoCurva;
+import umg.progra2.Metodos.CentroidesyCentroides.LogicaCentroides;
 import umg.progra2.Metodos.Definidas.LogicaDefinidas;
 import umg.progra2.Metodos.Impropias.LogicaImpropias;
+import umg.progra2.Metodos.IntegralValorMedio.LogicaValorMedio;
 import umg.progra2.Metodos.Sustitucion.LogicaSustitucion;
 import umg.progra2.Metodos.Trigonometricas.LogicaTrigonometrica;
 import umg.progra2.Metodos.VolumenSolido.Arandelas;
 import umg.progra2.Metodos.VolumenSolido.Cascarones;
 import umg.progra2.Metodos.utilidades.GraficadorArandelas;
 import umg.progra2.Metodos.utilidades.GraficadorCascarones;
+import umg.progra2.Metodos.utilidades.GraficadorFunciones;
 
 import java.io.IOException;
 import java.net.URL;
@@ -111,7 +116,7 @@ public class CalculatorController implements Initializable {
             case "10":
                 display.setText("");
                 display2.setText("Ingresa la función para calcular las derivadas parciales (≧∇≦)ﾉ");
-                igual.setVisible(false);
+                siguiente.setVisible(false);
                 break;
             case "11":
                 display.setText("");
@@ -163,14 +168,8 @@ public class CalculatorController implements Initializable {
                     case "2", "3":
                         calcularTrigonometricasyPartes();
                         break;
-                    case "8":
-
-                        break;
-                    case "9":
-
-                        break;
                     case "10":
-
+                        calcularParciales();
                         break;
                     case "11":
 
@@ -207,7 +206,7 @@ public class CalculatorController implements Initializable {
                 handleSquareRoot();
                 break;
             case "!":
-                handleFactorial();
+                abrirEasterEgg();
                 break;
             case "(":
                 handleOpenParenthesis();
@@ -230,7 +229,7 @@ public class CalculatorController implements Initializable {
             case "->":
                 switch (this.mode){
                     case "4":
-                        calcularImpropia();
+                        calcularImpropias();
                         break;
                     case "5":
                         calcularAreaBajoCurva();
@@ -241,7 +240,16 @@ public class CalculatorController implements Initializable {
                     case "7":
                         calcularDefinidas();
                         break;
+                    case "8":
+                        calcularValorMedio();
+                        break;
+                    case "9":
+                        calcularCentroides();
+                        break;
                 }
+                break;
+            case "Cre":
+                abrirCreditos();
                 break;
         }
     }
@@ -309,96 +317,6 @@ public class CalculatorController implements Initializable {
         operator = "";
         start = true;
         answer = result;
-    }
-
-
-
-
-
-    //REVISAR PQ NO FUNCA, YA SE PORQUE NO FUNCA PERO TA PERRO ARREGLARLO
-    public void calcularImpropia() {
-        try {
-            String textoActual = display.getText().trim();
-
-            switch (paso) {
-                case 0:  // Guardar la expresión
-                    if (textoActual.isEmpty()) {
-                        display2.setText("¡Debes ingresar una función! (╯°□°）╯");
-                        return;
-                    }
-                    expresionGuardadaF = textoActual;
-                    display2.setText("Ingresa el valor de a (límite inferior) (｀∀´)Ψ");
-                    display.setText("");
-                    paso++;
-                    break;
-
-                case 1:  // Guardar límite inferior
-                    try {
-                        valorA = Double.parseDouble(textoActual);
-                        display2.setText("Ingresa el valor de b (límite superior) (⌐■_■)");
-                        display.setText("");
-                        paso++;
-                    } catch (NumberFormatException e) {
-                        display2.setText("¡Ingresa un número válido! (╯°□°）╯");
-                    }
-                    break;
-
-                case 2:  // Guardar límite superior
-                    if (textoActual.equalsIgnoreCase("∞")) {
-                        valorB = Double.POSITIVE_INFINITY;
-                    } else {
-                        try {
-                            valorB = Double.parseDouble(textoActual);
-                        } catch (NumberFormatException e) {
-                            display2.setText("¡Ingresa un número válido o '∞'! (╯°□°）╯");
-                            return;
-                        }
-                    }
-                    display2.setText("Ingresa el número de divisiones (n) para la precisión del cálculo ᕦ(ò_óˇ)ᕤ");
-                    display.setText("");
-                    paso++;
-                    break;
-
-                case 3:  // Procesar número de divisiones y calcular
-                    try {
-                        n = Integer.parseInt(textoActual);
-                        if (n <= 0) {
-                            display2.setText("¡El número de divisiones debe ser mayor a 0! (╯°□°）╯");
-                            return;
-                        }
-
-                        // Realizar el cálculo
-                        Function<Double, Double> funcion = LogicaImpropias.obtenerFuncion(expresionGuardadaF);
-                        double resultado = LogicaImpropias.calcularIntegralImpropia(funcion, valorA, valorB, n);
-
-                        // Mostrar resultado
-                        display.setText(String.valueOf(resultado));
-                        display2.setText("¡Cálculo completado! (づ｡◕‿‿◕｡)づ");
-
-                        // Reiniciar para nuevo cálculo
-                        paso = 0;
-                        expresionGuardadaF = "";
-                        valorA = null;
-                        valorB = null;
-                        n = 0;
-
-                    } catch (NumberFormatException e) {
-                        display2.setText("¡Ingresa un número válido para las divisiones! (╯°□°）╯");
-                    } catch (Exception e) {
-                        display2.setText("Error: " + e.getMessage() + " (╯°□°）╯");
-                    }
-                    break;
-            }
-
-        } catch (Exception e) {
-            display2.setText("Error inesperado: " + e.getMessage() + " (╯°□°）╯");
-            // Reiniciar todo en caso de error
-            paso = 0;
-            expresionGuardadaF = "";
-            valorA = null;
-            valorB = null;
-            n = 0;
-        }
     }
 
     public void calcularAreaBajoCurva(){
@@ -746,6 +664,244 @@ public class CalculatorController implements Initializable {
         }
     }
 
+    public void calcularParciales() {
+        ExprEvaluator eval = new ExprEvaluator();
+        StringBuilder resultado = new StringBuilder(); // Usamos un StringBuilder para concatenar el resultado
+        try {
+            // Obtener la expresión desde el TextField "display" o un campo similar
+            String expresion = display.getText();
+            try {
+                String derivadaRespectoX = eval.evaluate("D(" + expresion + ", x)").toString();
+                resultado.append("Derivada respecto a x: ").append(derivadaRespectoX).append("\n");
+            } catch (Exception e) {
+                resultado.append("Error al calcular la derivada respecto a x: ").append(e.getMessage()).append("\n");
+            }
+            try {
+                String derivadaRespectoY = eval.evaluate("D(" + expresion + ", y)").toString();
+                resultado.append(" Derivada respecto a y: ").append(derivadaRespectoY).append("\n");
+            } catch (Exception e) {
+                resultado.append("Error al calcular la derivada respecto a y: ").append(e.getMessage()).append("\n");
+            }
+        } catch (Exception e) {
+            resultado.append("Error en la entrada de datos o ejecución: ").append(e.getMessage()).append("\n");
+        }
+
+        // Mostrar el resultado en el TextArea o Label (en lugar de imprimirlo en consola)
+        display2.setText("El resultado es: ");
+        display.setText(resultado.toString()); // Aquí actualizas el display con los resultados concatenados
+    }
+
+    public void calcularCentroides() {
+        try {
+            String textoActual = display.getText().trim();
+
+            switch (paso) {
+                case 0:  // Pedir la función
+                    if (textoActual.isEmpty()) {
+                        display2.setText("¡Debes ingresar una función! (╯°□°）╯");
+                        return;
+                    }
+                    expresionGuardadaF = textoActual;
+                    display2.setText("Ingresa el valor de a (límite inferior) (⌐■_■)");
+                    display.setText("");
+                    paso++;
+                    break;
+
+                case 1:  // Pedir límite inferior
+                    try {
+                        valorA = Double.parseDouble(textoActual);
+                        display2.setText("Ingresa el valor de b (límite superior) (｀∀´)Ψ");
+                        display.setText("");
+                        paso++;
+                    } catch (NumberFormatException e) {
+                        display2.setText("¡Ingresa un número válido! (╯°□°）╯");
+                    }
+                    break;
+
+                case 2:  // Pedir límite superior y calcular
+                    try {
+                        valorB = Double.parseDouble(textoActual);
+
+                        // Crear la función usando el método existente
+                        UnivariateFunction funcion = x -> LogicaCentroides.evaluarFuncion(expresionGuardadaF, x);
+
+                        // Calcular el área
+                        double area = LogicaCentroides.evaluarIntegral(funcion, valorA, valorB);
+
+                        if (!Double.isNaN(area) && area != 0) {
+                            // Calcular centroides
+                            double xBar = LogicaCentroides.evaluarIntegral(x -> x * funcion.value(x), valorA, valorB) / area;
+                            double yBar = LogicaCentroides.evaluarIntegral(funcion, valorA, valorB) / area;
+
+                            // Mostrar resultados
+                            display2.setText("El resultado es:");
+                            display.setText(String.format("Área: %.2f, Centro de masa (x̄, ȳ): (%.2f, %.2f)",
+                                    area, xBar, yBar));
+
+                            // Graficar la función
+                            GraficadorFunciones.mostrarGrafica(expresionGuardadaF, funcion, valorA, valorB);
+
+                        } else {
+                            display2.setText("Error: El área es 0 o no se pudo calcular.");
+                            display.setText("");
+                        }
+
+                        // Reiniciar para nuevo cálculo
+                        paso = 0;
+                        expresionGuardadaF = "";
+                        valorA = null;
+                        valorB = null;
+
+                    } catch (NumberFormatException e) {
+                        display2.setText("¡Ingresa un número válido! (╯°□°）╯");
+                    }
+                    break;
+            }
+        } catch (Exception e) {
+            display2.setText("Error inesperado: " + e.getMessage() + " (╯°□°）╯");
+            // Reiniciar todo en caso de error
+            paso = 0;
+            expresionGuardadaF = "";
+            valorA = null;
+            valorB = null;
+        }
+    }
+
+    public void calcularValorMedio() {
+        try {
+            String textoActual = display.getText().trim();
+
+            switch (paso) {
+                case 0:  // Pedir la función
+                    if (textoActual.isEmpty()) {
+                        display2.setText("¡Debes ingresar una función! (╯°□°）╯");
+                        return;
+                    }
+                    expresionGuardadaF = textoActual;
+                    display2.setText("Ingresa el valor de a (límite inferior) (⌐■_■)");
+                    display.setText("");
+                    paso++;
+                    break;
+
+                case 1:  // Pedir límite inferior
+                    try {
+                        valorA = Double.parseDouble(textoActual);
+                        display2.setText("Ingresa el valor de b (límite superior) (｀∀´)Ψ");
+                        display.setText("");
+                        paso++;
+                    } catch (NumberFormatException e) {
+                        display2.setText("¡Ingresa un número válido! (╯°□°）╯");
+                    }
+                    break;
+
+                case 2:  // Pedir límite superior y calcular
+                    try {
+                        valorB = Double.parseDouble(textoActual);
+
+                        // Crear la función usando la clase FuncionUsuario de LogicaValorMedio
+                        UnivariateFunction funcion = new LogicaValorMedio.FuncionUsuario(expresionGuardadaF);
+
+                        // Calcular el valor medio
+                        double resultado = LogicaValorMedio.calcularIntegralPromedio(funcion, valorA, valorB);
+
+                        if (!Double.isNaN(resultado)) {
+                            // Mostrar resultados
+                            display2.setText("El valor promedio de la integral es:");
+                            display.setText(String.format("%.4f", resultado));
+
+                            // Graficar la función
+                            GraficadorFunciones.mostrarGrafica(expresionGuardadaF, funcion, valorA, valorB);
+
+                        } else {
+                            display2.setText("Error: No se pudo calcular el valor medio.");
+                            display.setText("");
+                        }
+
+                        // Reiniciar para nuevo cálculo
+                        paso = 0;
+                        expresionGuardadaF = "";
+                        valorA = null;
+                        valorB = null;
+
+                    } catch (NumberFormatException e) {
+                        display2.setText("¡Ingresa un número válido! (╯°□°）╯");
+                    }
+                    break;
+            }
+        } catch (Exception e) {
+            display2.setText("Error inesperado: " + e.getMessage() + " (╯°□°）╯");
+            // Reiniciar todo en caso de error
+            paso = 0;
+            expresionGuardadaF = "";
+            valorA = null;
+            valorB = null;
+        }
+    }
+
+    public void calcularImpropias() {
+        try {
+            String textoActual = display.getText().trim();
+
+            switch (paso) {
+                case 0:  // Pedir función
+                    if (textoActual.isEmpty()) {
+                        display2.setText("Ingresa la función a integrar (｀∀´)Ψ");
+                        return;
+                    }
+                    expresionGuardadaF = textoActual;
+                    display2.setText("Ingresa el valor de a (límite inferior) -∞ para infinito negativo (⌐■_■)");
+                    display.setText("");
+                    paso++;
+                    break;
+
+                case 1:  // Pedir límite inferior
+                    try {
+                        valorA = LogicaImpropias.parseInput(textoActual);
+                        display2.setText("Ingresa el valor de b (límite superior) ∞ para infinito positivo (⌐■_■)");
+                        display.setText("");
+                        paso++;
+                    } catch (IllegalArgumentException e) {
+                        display2.setText("¡Valor inválido! Ingresa un número, -∞ o π o e (╯°□°）╯");
+                        return;
+                    }
+                    break;
+
+                case 2:  // Pedir límite superior y calcular
+                    try {
+                        valorB = LogicaImpropias.parseInput(textoActual);
+
+                        LogicaImpropias logicaImpropias = new LogicaImpropias();
+                        BiFunction<Double, Double, Double> funcion = logicaImpropias.convertirFuncion(expresionGuardadaF);
+                        double resultado = logicaImpropias.integrar(funcion, valorA, valorB, 0.0, 0.0, "x");
+
+                        display2.setText("El resultado de la integral impropia es:");
+                        display.setText(String.format("%.4f", resultado));
+
+                        // Reiniciar variables para el siguiente cálculo
+                        paso = 0;
+                        expresionGuardadaF = "";
+                        valorA = null;
+                        valorB = null;
+
+                    } catch (IllegalArgumentException e) {
+                        display2.setText("¡Valor inválido! Ingresa un número, ∞ o π o e (╯°□°）╯");
+                        return;
+                    } catch (Exception e) {
+                        display2.setText("Error al calcular la integral: " + e.getMessage());
+                        paso = 0;  // Reiniciar en caso de error
+                    }
+                    break;
+            }
+        } catch (Exception e) {
+            display2.setText("Error inesperado: " + e.getMessage() + " (╯°□°）╯");
+            // Reiniciar todo en caso de error
+            paso = 0;
+            expresionGuardadaF = "";
+            valorA = null;
+            valorB = null;
+        }
+    }
+
 
 
     private void handleDelete() {
@@ -894,5 +1050,40 @@ public class CalculatorController implements Initializable {
     private void handlemultiplicacion() {
         display.setText(display.getText()+"*");
         start = true;
+    }
+
+    @FXML
+    private void abrirEasterEgg() {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EasterEgg.fxml"));
+            Parent root = fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setTitle("¡Easter Egg!");
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void abrirCreditos() {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Creditos.fxml"));
+            Parent root = fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setTitle("Créditos");
+            Scene scene = new Scene(root);
+            scene.setFill(javafx.scene.paint.Color.BLACK);
+            stage.setScene(scene);
+            stage.setMinWidth(800);
+            stage.setMinHeight(600);
+            stage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
