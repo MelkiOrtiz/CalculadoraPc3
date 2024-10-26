@@ -240,7 +240,7 @@ public class CalculatorController implements Initializable {
             case "d□":
                 handleDx();
                 break;
-            case "->":
+            case "⮕":
                 switch (this.mode){
                     case "4":
                         calcularImpropias();

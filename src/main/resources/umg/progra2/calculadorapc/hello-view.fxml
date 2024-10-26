@@ -23,9 +23,9 @@
          </font></TextField>
 
     <!-- First Row -->
-    <Button fx:id="igual" onMouseClicked="#handleButtonAction" style="-fx-min-width: 80px; -fx-min-height: 60px; -fx-background-color: #FFC300;" text="=" GridPane.columnIndex="6" GridPane.rowIndex="5">
+    <Button fx:id="igual" onMouseClicked="#handleButtonAction" style="-fx-min-width: 80px; -fx-min-height: 60px; -fx-background-color: #FFC300;" text="=" textAlignment="CENTER" GridPane.columnIndex="6" GridPane.rowIndex="5">
          <font>
-            <Font size="18.0" />
+            <Font size="30.0" />
          </font></Button>
     <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 80px; -fx-min-height: 60px; -fx-background-color: #669BBC;" text="ln" GridPane.columnIndex="1" GridPane.rowIndex="2">
          <font>
@@ -61,9 +61,9 @@
          </font></Button>
 
     <!-- Second Row -->
-    <Button fx:id="siguiente" onMouseClicked="#handleButtonAction" style="-fx-min-width: 80px; -fx-min-height: 60px;-fx-background-color: #FFC300" text="-&gt;" GridPane.columnIndex="3" GridPane.rowIndex="2">
+    <Button fx:id="siguiente" onMouseClicked="#handleButtonAction" style="-fx-min-width: 80px; -fx-min-height: 60px;-fx-background-color: #FFC300" text="⮕" GridPane.columnIndex="3" GridPane.rowIndex="2">
          <font>
-            <Font size="18.0" />
+            <Font size="27.0" />
          </font></Button>
     <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 80px; -fx-min-height: 60px; -fx-background-color: #669BBC;" text="sen" GridPane.columnIndex="1" GridPane.rowIndex="3">
          <font>
@@ -162,9 +162,9 @@
          <font>
             <Font size="18.0" />
          </font></Button>
-    <Button fx:id="regresar" onAction="#handleReturnToMenu" style="-fx-min-width: 80px; -fx-min-height: 60px; -fx-background-color: #669BBC;" text="⬅" GridPane.rowIndex="2">
+    <Button fx:id="regresar" onMouseClicked="#handleButtonAction" style="-fx-min-width: 80px; -fx-min-height: 60px; -fx-background-color: #669BBC;" text="⬅" GridPane.rowIndex="2">
          <font>
-            <Font size="18.0" />
+            <Font size="27.0" />
          </font></Button>
     <Button layoutX="20.0" layoutY="200.0" onMouseClicked="#handleButtonAction" style="-fx-min-width: 80px; -fx-min-height: 60px; -fx-background-color: #669BBC;" text="Cre" GridPane.columnIndex="3" GridPane.rowIndex="5">
          <font>
@@ -230,7 +230,7 @@
          <Image url="@CirculoFrente.png" />
       </image>
    </ImageView>
-   <Button fx:id="btnRegresarMenuPrincipal" onAction="#handleReturnToMenu" layoutX="382.0" layoutY="502.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="38.0" style="-fx-background-color: #FFC300;" text="☗" textFill="WHITE">
+   <Button fx:id="btnRegresarMenuPrincipal" layoutX="382.0" layoutY="502.0" mnemonicParsing="false" onAction="#handleReturnToMenu" prefHeight="45.0" prefWidth="38.0" style="-fx-background-color: #FFC300;" text="☗" textFill="WHITE">
       <font>
          <Font size="16.0" />
       </font>
