@@ -154,7 +154,7 @@
          <font>
             <Font size="18.0" />
          </font></Button>
-    <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 80px; -fx-min-height: 60px; -fx-background-color: #669BBC;" text="∫ab" GridPane.columnIndex="3" GridPane.rowIndex="4">
+    <Button onMouseClicked="#handleButtonAction" style="-fx-min-width: 80px; -fx-min-height: 60px; -fx-background-color: #669BBC;" text="Doc" GridPane.columnIndex="3" GridPane.rowIndex="4">
          <font>
             <Font size="18.0" />
          </font></Button>

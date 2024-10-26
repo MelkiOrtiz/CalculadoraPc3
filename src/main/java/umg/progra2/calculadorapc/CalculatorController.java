@@ -271,6 +271,10 @@ public class CalculatorController implements Initializable {
             case "Cre":
                 abrirCreditos();
                 break;
+            case "Doc":
+                descargarPDF();
+                break;
+
         }
     }
 
@@ -1166,6 +1170,11 @@ public class CalculatorController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    private void descargarPDF() {
+        PDFDownloader.descargarDocumentacion();
     }
 
     @FXML
